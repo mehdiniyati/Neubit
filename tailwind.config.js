@@ -10,7 +10,9 @@ module.exports = withMT({
       buttongreen: "#00FFA3",
       dark: "#070707",
       green: "#00FFA3",
+      gray: "#DCDCDC",
+      bgButton: "#313334",
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 });

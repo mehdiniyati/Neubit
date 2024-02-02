@@ -108,11 +108,11 @@ function NavListMenu() {
         <MenuHandler className=" ml-4 ">
           <Typography as="div" variant="small" className="font-medium  ">
             <a
-              className="flex items-center gap-2 py-2 pr-4 font-medium text-[#FFFFFF] cursor-pointer "
+              className="flex items-center gap-2 py-2 pr-4  text-[#FFFFFF] font-bold cursor-pointer opacity-70 hover:opacity-100"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Resources
+              Market
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3   lg:block ${
@@ -144,37 +144,43 @@ function NavListMenu() {
 function NavList() {
   return (
     <List className="mt-4 items-center mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 ">
-      <Typography
-        as="a"
-        href="#"
-        variant="h6"
-        className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-greenText "
-      >
-        Neubit
-      </Typography>
-      <Typography
-        as="a"
-        href="#"
-        variant="small"
-        color="blue-gray"
-        className="font-medium"
-      >
-        <a className="flex items-center gap-2 py-2 pr-4 text-[#FFFFFF] ">
-          Home
-        </a>
-      </Typography>
-      <NavListMenu />
-      <Typography
-        as="a"
-        href="#"
-        variant="small"
-        color="blue-gray"
-        className="font-medium "
-      >
-        <a className="flex items-center gap-2 py-2 pr-4 text-[#FFFFFF]">
-          Contact Us
-        </a>
-      </Typography>
+      <div className="  flex flex-col justify-between items-center lg:flex-row lg:w-[600px] xl:w-[750px]">
+        <div>
+          <Typography
+            as="a"
+            href="#"
+            variant="h6"
+            className="mr-4 cursor-pointer text-2xl py-1.5 lg:ml-2 text-greenText hidden lg:block "
+          >
+            Neu<span className=" text-white">bit</span>
+          </Typography>
+        </div>
+        <div className="flex flex-col items-center lg:flex-row">
+          <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-medium"
+          >
+            <a className="flex items-center gap-2 py-2 pr-4 text-[#FFFFFF] font-bold opacity-70 hover:opacity-100">
+              Home
+            </a>
+          </Typography>
+          <NavListMenu />
+          <Typography
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-medium "
+          >
+            <a className="flex items-center gap-2 py-2 pr-4 text-[#FFFFFF] font-bold opacity-70 hover:opacity-100">
+              Learn
+            </a>
+          </Typography>
+        </div>
+      </div>
     </List>
   );
 }
@@ -190,17 +196,22 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <div className=" flex justify-center ">
+    <div className=" flex justify-center">
       <Navbar className=" px-4 py-2 shadow-none fixed top-0 z-50 mx-auto   bg-[#2E303D] bg-opacity-50 backdrop-blur-lg rounded drop-shadow-lg border-none">
-        <div className="flex items-center justify-between text-blue-gray-900">
+        <div className="flex flex-row-reverse items-center justify-between lg:flex-row text-blue-gray-900">
+          <Typography
+            as="a"
+            href="#"
+            variant="h6"
+            className="mr-4 cursor-pointer text-2xl py-1.5 lg:ml-2 text-greenText lg:hidden "
+          >
+            Neu<span className=" text-white">bit</span>
+          </Typography>
           <div className="hidden lg:block">
             <NavList />
           </div>
-          <div className="hidden gap-2 lg:flex">
-            <button className="py-2 px-5 rounded-full border-2 font-medium border-bor text-greenText">
-              Log In
-            </button>
-            <button className=" bg-buttongreen text-dark rounded-full px-5 font-bold text-sm">
+          <div className="hidden lg:flex">
+            <button className=" bg-buttongreen p-2 text-dark rounded-full px-5 font-bold text-sm">
               Sign In
             </button>
           </div>
