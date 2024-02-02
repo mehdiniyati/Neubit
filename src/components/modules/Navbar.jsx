@@ -32,32 +32,32 @@ import {
 const navListMenuItems = [
   {
     title: "Products",
-    description: "Find the perfect solution for your needs.",
+    description: "Find the perfect solution.",
     icon: SquaresPlusIcon,
   },
   {
     title: "About Us",
-    description: "Meet and learn about our dedication",
+    description: "Find the perfect solution.",
     icon: UserGroupIcon,
   },
   {
     title: "Blog",
-    description: "Find the perfect solution for your needs.",
+    description: "Find the perfect solution.",
     icon: Bars4Icon,
   },
   {
     title: "Services",
-    description: "Learn how we can help you achieve your.",
+    description: "Find the perfect solution.",
     icon: SunIcon,
   },
   {
     title: "Support",
-    description: "Reach out to us for assistance or inquiries",
+    description: "Find the perfect solution.",
     icon: GlobeAmericasIcon,
   },
   {
     title: "Contact",
-    description: "Find the perfect solution for your needs.",
+    description: "Find the perfect solution.",
     icon: PhoneIcon,
   },
 ];
@@ -68,7 +68,7 @@ function NavListMenu() {
   const renderItems = navListMenuItems.map(
     ({ icon, title, description }, key) => (
       <a href="#" key={key}>
-        <MenuItem className="flex z-10 items-center gap-3 rounded-lg hover:bg-[#2E303D] ">
+        <MenuItem className="flex z-10 items-center gap-3 rounded-lg hover:bg-[#2E303D] w-[140px] h-20 ">
           <div className="flex items-center justify-center rounded-lg bg p-2 bg-green  ">
             {" "}
             {React.createElement(icon, {
@@ -105,17 +105,17 @@ function NavListMenu() {
         placement="bottom"
         allowHover={true}
       >
-        <MenuHandler className=" ml-4  ">
-          <Typography as="div" variant="small" className="font-medium ">
+        <MenuHandler className=" ml-4 ">
+          <Typography as="div" variant="small" className="font-medium  ">
             <a
-              className="flex items-center gap-2 py-2 pr-4 font-medium text-[#FFFFFF] cursor-pointer"
+              className="flex items-center gap-2 py-2 pr-4 font-medium text-[#FFFFFF] cursor-pointer "
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
               Resources
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`hidden h-3 w-3  lg:block ${
+                className={`hidden h-3 w-3   lg:block ${
                   isMenuOpen ? "rotate-180" : ""
                 }`}
               />
@@ -150,7 +150,7 @@ function NavList() {
         variant="h6"
         className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-greenText "
       >
-        Material Tailwind
+        Neubit
       </Typography>
       <Typography
         as="a"
