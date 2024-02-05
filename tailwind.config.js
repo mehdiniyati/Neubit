@@ -1,7 +1,13 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
 
+const { nextui } = require("@nextui-org/react");
+
 module.exports = withMT({
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
     colors: {
@@ -14,5 +20,6 @@ module.exports = withMT({
       bgButton: "#313334",
     },
   },
-  plugins: [require("tailwindcss-animated")],
+  darkMode: "class",
+  plugins: [require("tailwindcss-animated"), nextui()],
 });
