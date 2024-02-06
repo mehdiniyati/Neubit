@@ -165,7 +165,10 @@ function NavList() {
             color="blue-gray"
             className="font-medium"
           >
-            <Link className="flex items-center gap-2 py-2 pr-4 text-[#FFFFFF] font-bold opacity-70 hover:opacity-100">
+            <Link
+              to="/"
+              className="flex items-center gap-2 py-2 pr-4 text-[#FFFFFF] font-bold opacity-70 hover:opacity-100"
+            >
               Home
             </Link>
           </Typography>

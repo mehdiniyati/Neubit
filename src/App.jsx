@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 //Components
 import { NavbarWithMegaMenu } from "./components/modules/Navbar.jsx";
 
@@ -8,12 +8,12 @@ import Login from "./components/modules/Login.jsx";
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<NavbarWithMegaMenu />} />
-          <Route path="login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+      <NavbarWithMegaMenu />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
     </>
   );
 };
