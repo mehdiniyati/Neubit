@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//react-router-dom
+import { Link } from "react-router-dom";
+
 //toast alert
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,6 +41,22 @@ const Login = () => {
     } else {
       notify("success", "You have successfully logged in");
     }
+
+    if (Object.keys(error).length <= 0) {
+      setData({
+        email: "",
+        password: "",
+      });
+      setToch({
+        email: false,
+        password: false,
+      });
+    } else {
+      setToch({
+        email: true,
+        password: true,
+      });
+    }
   };
 
   return (
@@ -55,7 +74,7 @@ const Login = () => {
                 </p>
                 <button className="  flex items-center justify-center px-5 py-2 text-white opacity-90 text-xs font-medium ring-1 ring-gray lg:ring-2  mt-6 w-full rounded-full xl:text-base bg-[#16202a] xl:px-6 xl:py-3">
                   <img className="w-5" src={google} alt="google" />
-                  Sign in with Google
+                  Login in with Google
                 </button>
                 <div className="flex flex-col text-left mt-6">
                   <label
@@ -95,6 +114,7 @@ const Login = () => {
                     name="password"
                     onClick={onClickHandler}
                   />
+
                   {error.password && toch.password ? (
                     <span className="text-gray text-xs p-1 bg-[#e11d48] font-bold rounded-lg inline-block w-52 mt-2">
                       {error.password}
@@ -109,10 +129,18 @@ const Login = () => {
                   Login
                 </button>
                 <ToastContainer />
+                <div className="w-full text-center mt-5">
+                  <p className="text-gray text-sm font-semibold">
+                    Not registered yet ?{" "}
+                    <Link to="/signup" className=" text-[#5d5fef]">
+                      Create an account
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
             <div
-              className="bg-cover bg-center w-6/12 hidden lg:block"
+              className="bg-cover bg-center w-7/12 hidden lg:block  rounded-bl-full rounded-tl-full shadow-lg "
               style={{
                 backgroundImage: `url(${backgrond})`,
               }}

@@ -7,6 +7,14 @@ export const validate = (data) => {
   const errors = {};
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  if (!!data.name === false) {
+    errors.name = "Enter your name";
+  } else if (!!data.name === true && data.name.length < 4) {
+    errors.name = "Your name should be more than 4 characters";
+  } else {
+    delete errors.name;
+  }
+
   if (!data.password) {
     errors.password = "The password is not valid!";
   } else if (data.password.length < 8) {
@@ -21,6 +29,14 @@ export const validate = (data) => {
     errors.email = "The email is not valid";
   } else {
     delete errors.email;
+  }
+
+  if (!data.confirmpassword) {
+    errors.confrimpassword = "The password is not valid!";
+  } else if (data.password !== data.confirmpassword) {
+    errors.confirmpassword = "The password is incorrect";
+  } else {
+    delete errors.confirmpassword;
   }
 
   return errors;
