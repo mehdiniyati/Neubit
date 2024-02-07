@@ -32,7 +32,7 @@ export const validate = (data) => {
   }
 
   if (!data.confirmpassword) {
-    errors.confrimpassword = "The password is not valid!";
+    errors.confirmpassword = "The password is not valid!";
   } else if (data.password !== data.confirmpassword) {
     errors.confirmpassword = "The password is incorrect";
   } else {
