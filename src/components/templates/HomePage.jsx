@@ -8,6 +8,8 @@ import Bitcoin from "../../assets/images/Bitcoin.png";
 import Cryptocurrency from "../../assets/images/Cryptocurrency.png";
 import Cryptocurrency2 from "../../assets/images/Cryptocurrency2.png";
 import Ethereum from "../../assets/images/Ethereum.png";
+import Rice from "../../assets/images/Rise.png";
+import descent from "../../assets/images/descent.png";
 
 const HomePage = () => {
   const getcoins = useContext(ContextCoins);
@@ -54,9 +56,40 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {getcoins.map((coin) => (
-        <p className="text-white">{coin.name}</p>
-      ))}
+      <div className="m-auto   px-7 py-4 max-w-screen-2xl mt-20 2xl:w-[1320px] flex flex-col justify-center">
+        {getcoins.map((coin) => (
+          <table>
+            <tr className="text-white flex justify-center items-center my-5">
+              <td className="flex items-center w-40 justify-start ">
+                <img className="w-7 mr-4" src={coin.image} alt={coin.id} />
+                {coin.name}
+              </td>
+              <td
+                className={
+                  coin.price_change_percentage_24h < 1
+                    ? "w-40 flex items-center justify-center text-[#FA1E39]"
+                    : "w-40 flex items-center justify-center text-green"
+                }
+              >
+                {coin.price_change_percentage_24h > 1
+                  ? `+ ${coin.price_change_percentage_24h.toFixed(2)} %`
+                  : `- ${coin.price_change_percentage_24h.toFixed(2)} %`}
+              </td>
+              <td className="w-40 flex items-center justify-center">
+                {coin.current_price.toFixed(2)} $
+              </td>
+              {coin.price_change_percentage_24h > 1 ? (
+                <img src={Rice} alt="Rice" />
+              ) : (
+                <img src={descent} alt="descent" />
+              )}
+              <button className="bg-bgButton py-2 px-3  rounded-full text-xs font-bold ml-4 text-green ring-1 ring-green lg:px-6 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
+                Trade
+              </button>
+            </tr>
+          </table>
+        ))}
+      </div>
     </div>
   );
 };

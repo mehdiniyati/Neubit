@@ -24,7 +24,7 @@ const App = () => {
   const [coins, setcoins] = useState([]);
   useEffect(() => {
     const getCoins = () => {
-      axios.get(getCoinList()).then((res) => setcoins(res.data));
+      axios.get(getCoinList(5)).then((res) => setcoins(res.data));
     };
 
     getCoins();
