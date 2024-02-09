@@ -69,7 +69,7 @@ function NavListMenu() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
     ({ icon, title, description }, key) => (
-      <Link href="#" key={key}>
+      <p href="#" key={key}>
         <MenuItem className="flex z-10 items-center gap-3 rounded-lg hover:bg-[#2E303D] w-[140px] h-20 ">
           <div className="flex items-center justify-center rounded-lg bg p-2 bg-green  ">
             {" "}
@@ -94,7 +94,7 @@ function NavListMenu() {
             </Typography>
           </div>
         </MenuItem>
-      </Link>
+      </p>
     )
   );
 
@@ -109,7 +109,7 @@ function NavListMenu() {
       >
         <MenuHandler className=" ml-4 ">
           <Typography as="div" variant="small" className="font-medium  ">
-            <Link
+            <p
               className="flex items-center gap-2 py-2 pr-4  text-[#FFFFFF] font-bold cursor-pointer opacity-70 hover:opacity-100"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -127,7 +127,7 @@ function NavListMenu() {
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
               />
-            </Link>
+            </p>
           </Typography>
         </MenuHandler>
         <MenuList className="hidden max-w-screen-sm rounded-xl lg:block border-none  bg-[#2E303D] bg-opacity-50  backdrop-blur-lg">

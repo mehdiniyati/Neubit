@@ -56,39 +56,53 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="m-auto   px-7 py-4 max-w-screen-2xl mt-20 2xl:w-[1320px] flex flex-col justify-center">
-        {getcoins.map((coin) => (
-          <table>
-            <tr className="text-white flex justify-center items-center my-5">
-              <td className="flex items-center w-40 justify-start ">
-                <img className="w-7 mr-4" src={coin.image} alt={coin.id} />
-                {coin.name}
-              </td>
-              <td
-                className={
-                  coin.price_change_percentage_24h < 1
-                    ? "w-40 flex items-center justify-center text-[#FA1E39]"
-                    : "w-40 flex items-center justify-center text-green"
-                }
+      <div className="m-auto  px-1 py-4 xl:max-w-screen-2xl mt-8 2xl:w-[1320px] flex flex-col justify-center relative">
+        <table>
+          <thead></thead>
+          <tbody>
+            {getcoins.map((coin) => (
+              <tr
+                key={coin.id}
+                className="text-white mt-2 flex justify-center items-center  "
               >
-                {coin.price_change_percentage_24h > 1
-                  ? `+ ${coin.price_change_percentage_24h.toFixed(2)} %`
-                  : `- ${coin.price_change_percentage_24h.toFixed(2)} %`}
-              </td>
-              <td className="w-40 flex items-center justify-center">
-                {coin.current_price.toFixed(2)} $
-              </td>
-              {coin.price_change_percentage_24h > 1 ? (
-                <img src={Rice} alt="Rice" />
-              ) : (
-                <img src={descent} alt="descent" />
-              )}
-              <button className="bg-bgButton py-2 px-3  rounded-full text-xs font-bold ml-4 text-green ring-1 ring-green lg:px-6 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
-                Trade
-              </button>
-            </tr>
-          </table>
-        ))}
+                <td className="flex items-center w-14 justify-start text-xs mr-2">
+                  <img
+                    className="w-4 mr-2 lg:mr-4"
+                    src={coin.image}
+                    alt={coin.id}
+                  />
+                  {coin.name}
+                </td>
+                <td
+                  className={
+                    coin.price_change_percentage_24h < 1
+                      ? "w-14 text-[10px] flex items-center justify-center text-[#FA1E39]"
+                      : "w-14 text-[10px] flex items-center justify-center text-green"
+                  }
+                >
+                  {coin.price_change_percentage_24h > 1
+                    ? `+ ${coin.price_change_percentage_24h.toFixed(2)} %`
+                    : `- ${coin.price_change_percentage_24h.toFixed(2)} %`}
+                </td>
+                <td className="w-14 flex items-center justify-center text-[10px]">
+                  {coin.current_price.toFixed(2)} $
+                </td>
+                <td className="w-14 flex justify-center items-center">
+                  {coin.price_change_percentage_24h > 1 ? (
+                    <img src={Rice} alt="Rice" className="w-10" />
+                  ) : (
+                    <img src={descent} alt="descent" className="w-10" />
+                  )}
+                </td>
+                <td className="w-14">
+                  <button className="bg-bgButton py-1 px-2  rounded-full text-xs font-bold ml-1 lg:ml-4  text-green ring-1 ring-green lg:px-6 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
+                    Trade
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
