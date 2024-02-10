@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 //context
 import { useContext } from "react";
@@ -10,11 +10,25 @@ import Cryptocurrency2 from "../../assets/images/Cryptocurrency2.png";
 import Ethereum from "../../assets/images/Ethereum.png";
 import Rice from "../../assets/images/Rise.png";
 import descent from "../../assets/images/descent.png";
+import Modal from "../modules/Modal";
 
 const HomePage = () => {
   const getcoins = useContext(ContextCoins);
+
+  const [modal, setModal] = useState(false);
+
+  const removeModal = () => {
+    setModal(false);
+  };
+
+  const modalClick = () => {
+    setModal(true);
+  };
+
+  console.log(modal);
   return (
-    <div>
+    <div className=" relative">
+      {modal ? <Modal modal={modal} setModal={setModal} /> : null}
       <div className="m-auto px-7 py-4 max-w-screen-2xl mt-20 2xl:w-[1320px] relative">
         {/* images position absolote */}
         <img
@@ -67,7 +81,8 @@ const HomePage = () => {
               >
                 <td className="flex items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg ">
                   <img
-                    className="w-4 mr-2 lg:mr-4 md:w-8 lg:w-12"
+                    onClick={modalClick}
+                    className="w-4 mr-2 lg:mr-4 md:w-8 lg:w-12 cursor-pointer"
                     src={coin.image}
                     alt={coin.id}
                   />
