@@ -1,6 +1,7 @@
 import React from "react";
 
-const Modal = ({ modal, setModal }) => {
+const Modal = ({ modal, setModal, chart }) => {
+  console.log(chart.data);
   return (
     <div className=" w-full h-full  fixed  bg-[#2E303D] bg-opacity-5 backdrop-blur-sm  z-50">
       <p

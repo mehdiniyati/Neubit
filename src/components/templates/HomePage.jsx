@@ -12,23 +12,17 @@ import Rice from "../../assets/images/Rise.png";
 import descent from "../../assets/images/descent.png";
 import Modal from "../modules/Modal";
 
+import { marketChart } from "../../services/cryptoApi";
+import axios from "axios";
+
 const HomePage = () => {
   const getcoins = useContext(ContextCoins);
-
   const [modal, setModal] = useState(false);
+  const [chart, setChart] = useState([]);
 
-  const removeModal = () => {
-    setModal(false);
-  };
-
-  const modalClick = () => {
-    setModal(true);
-  };
-
-  console.log(modal);
   return (
     <div className=" relative">
-      {modal ? <Modal modal={modal} setModal={setModal} /> : null}
+      {modal ? <Modal setModal={setModal} chart={chart} /> : null}
       <div className="m-auto px-7 py-4 max-w-screen-2xl mt-20 2xl:w-[1320px] relative">
         {/* images position absolote */}
         <img
@@ -75,54 +69,12 @@ const HomePage = () => {
           <thead></thead>
           <tbody>
             {getcoins.map((coin) => (
-              <tr
+              <TableRow
+                coin={coin}
                 key={coin.id}
-                className="text-white mt-2  flex justify-center items-center  "
-              >
-                <td className="flex items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg ">
-                  <img
-                    onClick={modalClick}
-                    className="w-4 mr-2 lg:mr-4 md:w-8 lg:w-12 cursor-pointer"
-                    src={coin.image}
-                    alt={coin.id}
-                  />
-                  {coin.name}
-                </td>
-                <td
-                  className={
-                    coin.price_change_percentage_24h < 1
-                      ? "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-[#FA1E39]"
-                      : "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-green"
-                  }
-                >
-                  {coin.price_change_percentage_24h > 1
-                    ? `+ ${coin.price_change_percentage_24h.toFixed(2)} %`
-                    : `- ${coin.price_change_percentage_24h.toFixed(2)} %`}
-                </td>
-                <td className="w-14 md:w-24 lg:w-40 flex items-center justify-center text-[10px] md:text-sm lg:text-lg mr-2">
-                  {coin.current_price.toFixed(2)} $
-                </td>
-                <td className="w-14 md:w-24 lg:w-40 flex justify-center items-center">
-                  {coin.price_change_percentage_24h > 1 ? (
-                    <img
-                      src={Rice}
-                      alt="Rice"
-                      className="w-10 md:w-16 lg:w-24"
-                    />
-                  ) : (
-                    <img
-                      src={descent}
-                      alt="descent"
-                      className="w-10 md:w-16 lg:w-24"
-                    />
-                  )}
-                </td>
-                <td className="w-14 md:w-24 lg:w-40 flex justify-center">
-                  <button className="bg-bgButton py-1 px-2  rounded-full text-xs font-bold ml-1 md:py-2 md:px-4 lg:ml-4  text-green ring-1 ring-green lg:px-8 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
-                    Trade
-                  </button>
-                </td>
-              </tr>
+                setModal={setModal}
+                setChart={setChart}
+              />
             ))}
           </tbody>
         </table>
@@ -132,3 +84,63 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+const TableRow = ({
+  coin: {
+    id,
+    image,
+    name,
+    current_price,
+    price_change_percentage_24h: price_change,
+  },
+  setModal,
+  setChart,
+}) => {
+  const modalClick = async () => {
+    try {
+      const res = await axios.get(marketChart(id)).then((res) => setChart(res));
+      setModal(true);
+    } catch (error) {
+      setChart(null);
+    }
+  };
+  return (
+    <tr className="text-white mt-2  flex justify-center items-center  ">
+      <td className="flex items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg ">
+        <img
+          onClick={modalClick}
+          className="w-4 mr-2 lg:mr-4 md:w-8 lg:w-12 cursor-pointer"
+          src={image}
+          alt={id}
+        />
+        {name}
+      </td>
+      <td
+        className={
+          price_change < 1
+            ? "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-[#FA1E39]"
+            : "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-green"
+        }
+      >
+        {price_change > 1
+          ? `+ ${price_change.toFixed(2)} %`
+          : `- ${price_change.toFixed(2)} %`}
+      </td>
+      <td className="w-14 md:w-24 lg:w-40 flex items-center justify-center text-[10px] md:text-sm lg:text-lg mr-2">
+        {current_price.toFixed(2)} $
+      </td>
+      <td className="w-14 md:w-24 lg:w-40 flex justify-center items-center">
+        {price_change > 1 ? (
+          <img src={Rice} alt="Rice" className="w-10 md:w-16 lg:w-24" />
+        ) : (
+          <img src={descent} alt="descent" className="w-10 md:w-16 lg:w-24" />
+        )}
+      </td>
+      <td className="w-14 md:w-24 lg:w-40 flex justify-center">
+        <button className="bg-bgButton py-1 px-2  rounded-full text-xs font-bold ml-1 md:py-2 md:px-4 lg:ml-4  text-green ring-1 ring-green lg:px-8 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
+          Trade
+        </button>
+      </td>
+    </tr>
+  );
+};
