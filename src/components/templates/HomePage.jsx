@@ -106,9 +106,11 @@ const TableRow = ({
   };
   return (
     <tr className="text-white mt-2  flex justify-center items-center  ">
-      <td className="flex items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg ">
+      <td
+        onClick={modalClick}
+        className="flex cursor-pointer items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg "
+      >
         <img
-          onClick={modalClick}
           className="w-4 mr-2 lg:mr-4 md:w-8 lg:w-12 cursor-pointer"
           src={image}
           alt={id}

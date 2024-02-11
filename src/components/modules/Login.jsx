@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 //toast alert
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../functions/Validate";
 
@@ -52,6 +52,7 @@ const Login = () => {
         password: false,
       });
     } else {
+      console.log(error);
       setToch({
         email: true,
         password: true,
