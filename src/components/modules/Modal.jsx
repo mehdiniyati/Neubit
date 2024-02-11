@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
+//functions
+import convertData from "../../helper/convertData";
 
 const Modal = ({ modal, setModal, chart }) => {
-  console.log(chart.data);
+  const [type, setType] = useState("prices");
+  console.log(convertData(chart.data, type));
+  chart;
   return (
     <div className=" w-full h-full  fixed  bg-[#2E303D] bg-opacity-5 backdrop-blur-sm  z-50">
       <p
