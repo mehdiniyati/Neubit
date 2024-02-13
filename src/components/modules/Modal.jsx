@@ -21,11 +21,11 @@ const Modal = ({ modal, setModal, chart }) => {
     <div className=" w-full h-full flex flex-col items-center xl:block fixed top-0   bg-[#2E303D] bg-opacity-5 backdrop-blur-sm  z-50">
       <p
         onClick={() => setModal(null)}
-        className=" text-red-500 mt-20 font-bold text-2xl xl:ml-10 border-2 inline-block px-2 rounded-md cursor-pointer"
+        className=" text-red-500 mt-16 font-bold text-2xl xl:ml-10 border-2 inline-block px-2 rounded-md cursor-pointer"
       >
         X
       </p>
-      <div className="flex flex-col justify-center items-center w-[310px] mt-20 xl:mt-32  xl:w-[800px] xl:m-auto xl:p-20 bg-[#18181ce6] rounded-2xl xl:border-2 xl:border-bor ">
+      <div className="flex flex-col justify-center items-center w-[310px]  xl:mt-32  xl:w-[800px] xl:m-auto xl:p-20 bg-[#0d0e0e] rounded-2xl xl:border-2 xl:border-bor ">
         <div className=" w-[300px] h-[200px] xl:w-[760px] xl:h-[300px] ">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
@@ -37,7 +37,7 @@ const Modal = ({ modal, setModal, chart }) => {
                 type={"monotone"}
                 dataKey={type}
                 stroke="#00FFA3"
-                strokeWidth="1px"
+                strokeWidth="4px"
               />
               <CartesianGrid stroke="#404042" />
               <YAxis

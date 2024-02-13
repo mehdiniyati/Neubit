@@ -46,6 +46,9 @@ const HomePage = () => {
           alt="Ethereum"
           className=" absolute w-9 bottom-14 right-10 md:w-14 md:right-24 lg:w-fit lg:bottom-10 lg:right-40 animate-wiggle-more animate-infinite animate-duration-[4000ms] animate-ease-in animate-normal animate-fill-backwards"
         />
+        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-3xl opacity-5 absolute left-20  top-40"></div>
+        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-3xl opacity-5 absolute right-20  top-64"></div>
+
         <div className="flex flex-col justify-center items-center mt-4  lg:mt-20">
           <h1 className=" text-green text-xl font-bold text-center lg:text-6xl xl:text-8xl">
             Trade Crypto with <br />
@@ -66,7 +69,18 @@ const HomePage = () => {
         </div>
       </div>
       <BuyCoins />
-      <div className="m-auto  px-1 py-4 xl:max-w-screen-2xl mt-8 2xl:w-[1320px] flex flex-col justify-center relative">
+      <div className="m-auto z-40  px-1 py-4 xl:max-w-screen-2xl mt-8 2xl:w-[1320px] flex flex-col justify-center relative">
+        <div className="flex flex-col justify-center items-center">
+          <button className="bg-bgButton text-greenText px-5 py-2 text-xs rounded-full">
+            Trade crypto
+          </button>
+          <p className="text-white lg:text-4xl my-6">
+            Crypto Market Trends and Metrics
+          </p>
+          View other crypto
+        </div>
+        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-2xl opacity-5 absolute left-32  top-40 -z-20"></div>
+        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-2xl opacity-5 absolute right-52  top-64 -z-20"></div>
         <table>
           <thead></thead>
           <tbody>
@@ -80,6 +94,11 @@ const HomePage = () => {
             ))}
           </tbody>
         </table>
+        <div className="flex justify-center mt-5 lg:mt-14">
+          <button className="bg-[bgButton] py-1 w-32 md:w-40 text-xs lg:px-10 lg:py-3 lg:text-lg text-green ring-1 ring-green  rounded-full lg:w-96">
+            View other crypto
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -110,7 +129,7 @@ const TableRow = ({
     <tr className="text-white mt-2  flex justify-center items-center  ">
       <td
         onClick={modalClick}
-        className="flex cursor-pointer items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg "
+        className="flex cursor-pointer  items-center w-14 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg lg:mt-5 lg:mr-3  "
       >
         <img
           className="w-4 mr-2 lg:mr-4 md:w-8 lg:w-12 cursor-pointer"
@@ -122,26 +141,26 @@ const TableRow = ({
       <td
         className={
           price_change < 1
-            ? "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-[#FA1E39]"
-            : "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-green"
+            ? "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-[#FA1E39] lg:mt-5 lg:mr-3"
+            : "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-green lg:mt-5 lg:mr-3"
         }
       >
         {price_change > 1
           ? `+ ${price_change.toFixed(2)} %`
           : `- ${price_change.toFixed(2)} %`}
       </td>
-      <td className="w-14 md:w-24 lg:w-40 flex items-center justify-center text-[10px] md:text-sm lg:text-lg mr-2">
+      <td className="w-14 md:w-24 lg:w-40 flex items-center justify-center text-[10px] md:text-sm lg:text-lg mr-2 lg:mt-5 lg:mr-3">
         {current_price.toFixed(2)} $
       </td>
-      <td className="w-14 md:w-24 lg:w-40 flex justify-center items-center">
+      <td className="w-14 md:w-24 lg:w-40 flex justify-center items-center lg:mt-5 lg:mr-3">
         {price_change > 1 ? (
           <img src={Rice} alt="Rice" className="w-10 md:w-16 lg:w-24" />
         ) : (
           <img src={descent} alt="descent" className="w-10 md:w-16 lg:w-24" />
         )}
       </td>
-      <td className="w-14 md:w-24 lg:w-40 flex justify-center">
-        <button className="bg-bgButton py-1 px-2  rounded-full text-xs font-bold ml-1 md:py-2 md:px-4 lg:ml-4  text-green ring-1 ring-green lg:px-8 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
+      <td className="w-14 md:w-24 lg:w-40 flex justify-center lg:mt-5 lg:mr-3">
+        <button className="bg-bgButton py-0 px-2  rounded-full text-xs lg:font-bold ml-1 md:py-2 md:px-4 lg:ml-4  text-green ring-1 ring-green lg:px-8 lg:ring-2 lg:py-3 xl:ml-6 xl:px-10 xl:py-3 ">
           Trade
         </button>
       </td>
