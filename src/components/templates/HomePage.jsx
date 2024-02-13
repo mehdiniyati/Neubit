@@ -11,6 +11,7 @@ import Ethereum from "../../assets/images/Ethereum.png";
 import Rice from "../../assets/images/Rise.png";
 import descent from "../../assets/images/descent.png";
 import Modal from "../modules/Modal";
+import BuyCoins from "../modules/BuyCoins";
 
 import { marketChart } from "../../services/cryptoApi";
 import axios from "axios";
@@ -64,6 +65,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <BuyCoins />
       <div className="m-auto  px-1 py-4 xl:max-w-screen-2xl mt-8 2xl:w-[1320px] flex flex-col justify-center relative">
         <table>
           <thead></thead>
