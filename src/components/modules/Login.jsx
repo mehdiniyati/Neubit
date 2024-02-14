@@ -22,6 +22,7 @@ const Login = () => {
   });
   const [error, setError] = useState([]);
   const [toch, setToch] = useState({});
+  const [lOginError, setLOginError] = useState([]);
 
   useEffect(() => {
     setError(validate(data));
@@ -36,13 +37,13 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e = e.preventDefault();
-    if (Object.keys(error).length > 0) {
+    if (Object.keys(error).length > 2) {
       notify("error", "The values are not correct");
     } else {
       notify("success", "You have successfully logged in");
     }
 
-    if (Object.keys(error).length <= 0) {
+    if (Object.keys(error).length < 3) {
       setData({
         email: "",
         password: "",
