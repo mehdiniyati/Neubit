@@ -18,6 +18,7 @@ module.exports = withMT({
       green: "#00FFA3",
       gray: "#DCDCDC",
       bgButton: "#1a1b1b",
+      dark2: "#13141A",
     },
   },
   darkMode: "class",

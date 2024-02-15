@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 //context
 import { useContext } from "react";
 import { ContextCoins } from "../../App";
+
 //images
 import Bitcoin from "../../assets/images/Bitcoin.png";
 import Cryptocurrency from "../../assets/images/Cryptocurrency.png";
@@ -10,8 +11,11 @@ import Cryptocurrency2 from "../../assets/images/Cryptocurrency2.png";
 import Ethereum from "../../assets/images/Ethereum.png";
 import Rice from "../../assets/images/Rise.png";
 import descent from "../../assets/images/descent.png";
+
+//components
 import Modal from "../modules/Modal";
 import BuyCoins from "../modules/BuyCoins";
+import LearnCrypto from "../modules/LearnCrypto";
 
 import { marketChart } from "../../services/cryptoApi";
 import axios from "axios";
@@ -24,7 +28,7 @@ const HomePage = () => {
   return (
     <div className=" relative">
       {modal ? <Modal setModal={setModal} chart={chart} /> : null}
-      <div className="m-auto px-7 py-4 max-w-screen-2xl mt-20 2xl:w-[1320px] relative">
+      <div className="m-auto py-4 max-w-screen-2xl mt-20 2xl:w-[1320px] relative">
         {/* images position absolote */}
         <img
           src={Bitcoin}
@@ -46,8 +50,8 @@ const HomePage = () => {
           alt="Ethereum"
           className=" absolute w-9 bottom-14 right-10 md:w-14 md:right-24 lg:w-fit lg:bottom-10 lg:right-40 animate-wiggle-more animate-infinite animate-duration-[4000ms] animate-ease-in animate-normal animate-fill-backwards"
         />
-        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-3xl opacity-5 absolute left-20  top-40"></div>
-        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-3xl opacity-5 absolute right-20  top-64"></div>
+        <div className=" bg-[#4E74FA] hidden w-80 h-60 rounded-full blur-3xl opacity-5 absolute left-20  top-40 2xl:block"></div>
+        <div className=" bg-[#4E74FA] hidden w-80 h-60 rounded-full blur-3xl opacity-5 absolute right-20  top-64 2xl:block"></div>
 
         <div className="flex flex-col justify-center items-center mt-4  lg:mt-20">
           <h1 className=" text-green text-xl font-bold text-center lg:text-6xl xl:text-8xl">
@@ -77,10 +81,9 @@ const HomePage = () => {
           <p className="text-white lg:text-4xl my-6">
             Crypto Market Trends and Metrics
           </p>
-          View other crypto
         </div>
-        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-2xl opacity-5 absolute left-32  top-40 -z-20"></div>
-        <div className=" bg-[#4E74FA] w-80 h-60 rounded-full blur-2xl opacity-5 absolute right-52  top-64 -z-20"></div>
+        <div className=" bg-[#4E74FA] hidden w-80 h-60 rounded-full blur-2xl opacity-5 absolute left-32  top-40 -z-20 2xl:block"></div>
+        <div className=" bg-[#4E74FA] hidden w-80 h-60 rounded-full blur-2xl opacity-5 absolute right-52  top-64 -z-20 2xl:block"></div>
         <table>
           <thead></thead>
           <tbody>
@@ -100,6 +103,7 @@ const HomePage = () => {
           </button>
         </div>
       </div>
+      <LearnCrypto />
     </div>
   );
 };
