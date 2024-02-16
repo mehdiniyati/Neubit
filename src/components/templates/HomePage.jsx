@@ -19,6 +19,7 @@ import LearnCrypto from "../modules/LearnCrypto";
 
 import { marketChart } from "../../services/cryptoApi";
 import axios from "axios";
+import ContactUs from "../modules/ContactUs";
 
 const HomePage = () => {
   const getcoins = useContext(ContextCoins);
@@ -104,6 +105,7 @@ const HomePage = () => {
         </div>
       </div>
       <LearnCrypto />
+      <ContactUs />
     </div>
   );
 };

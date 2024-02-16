@@ -72,7 +72,7 @@ const SignUp = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center items-center h-dvh bg-[#26313c] ">
-          <div className=" px-4 py-2 mt-10 mx-4 w-80  bg-[#16202a] rounded-md lg:flex lg:w-full lg:px-0 lg:mx-20 2xl:mx-80 xl:h-[750px] xl:w-[1400px]  lg:rounded-xl overflow-hidden xl:shadow-2xl xl:shadow-blue-gray-900">
+          <div className=" px-4 py-2 mt-10 mx-4 w-80  bg-[#16202a] rounded-md lg:flex lg:w-full lg:px-0 lg:mx-20 2xl:mx-80 lg:h-[650px] xl:h-[680px] xl:w-[1400px]  lg:rounded-xl overflow-hidden xl:shadow-2xl xl:shadow-blue-gray-900">
             <div className=" lg:w-6/12 lg:px-0 lg:flex lg:flex-col lg:items-center lg:justify-center">
               <div className=" text-center lg:text-left lg:w-72 xl:w-80 ">
                 <h1 className=" text-white text-xl font-bold mt-2 xl:text-2xl">
