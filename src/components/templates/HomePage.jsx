@@ -16,10 +16,11 @@ import descent from "../../assets/images/descent.png";
 import Modal from "../modules/Modal";
 import BuyCoins from "../modules/BuyCoins";
 import LearnCrypto from "../modules/LearnCrypto";
+import ContactUs from "../modules/ContactUs";
+import Footer from "../modules/Footer";
 
 import { marketChart } from "../../services/cryptoApi";
 import axios from "axios";
-import ContactUs from "../modules/ContactUs";
 
 const HomePage = () => {
   const getcoins = useContext(ContextCoins);
@@ -106,6 +107,7 @@ const HomePage = () => {
       </div>
       <LearnCrypto />
       <ContactUs />
+      <Footer />
     </div>
   );
 };
