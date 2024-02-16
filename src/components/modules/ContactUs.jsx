@@ -10,7 +10,7 @@ const ContactUs = () => {
   return (
     <>
       <div className=" px-6 m-auto">
-        <div className="  lg:max-w-screen-2xl mx-auto px-9 grid grid-rows-1 place-items-center md:grid-cols-2 justify-center items-center md:grid-rows-none ">
+        <div className="  lg:max-w-screen-2xl bg-dark2 rounded-lg mx-auto px-9 grid grid-rows-1 place-items-center md:grid-cols-2 justify-center items-center md:grid-rows-none ">
           <div className=" mt-3 lg:pl-16 lg:my-0  flex flex-col justify-center items-center text-center md:items-start">
             <div className=" lg:h-72 flex flex-col justify-between lg:content-center lg:mt-16">
               <div className=" md:text-left ">

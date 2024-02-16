@@ -18,6 +18,7 @@ import BuyCoins from "../modules/BuyCoins";
 import LearnCrypto from "../modules/LearnCrypto";
 import ContactUs from "../modules/ContactUs";
 import Footer from "../modules/Footer";
+import Faqs from "../modules/Faqs";
 
 import { marketChart } from "../../services/cryptoApi";
 import axios from "axios";
@@ -106,6 +107,7 @@ const HomePage = () => {
         </div>
       </div>
       <LearnCrypto />
+      <Faqs />
       <ContactUs />
       <Footer />
     </div>
