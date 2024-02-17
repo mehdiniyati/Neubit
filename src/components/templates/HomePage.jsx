@@ -22,6 +22,7 @@ import Faqs from "../modules/Faqs";
 
 import { marketChart } from "../../services/cryptoApi";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const getcoins = useContext(ContextCoins);
@@ -100,10 +101,13 @@ const HomePage = () => {
             ))}
           </tbody>
         </table>
-        <div className="flex justify-center mt-5 lg:mt-14">
-          <button className="bg-[bgButton] py-1 w-32 md:w-40 text-xs lg:px-10 lg:py-3 lg:text-lg text-green ring-1 ring-green  rounded-full lg:w-96">
+        <div className="flex justify-center text-center mt-5 lg:mt-14">
+          <Link
+            to="/pagination"
+            className="bg-[bgButton] py-1 w-32 md:w-40 text-xs lg:px-10 lg:py-3 lg:text-lg text-green ring-1 ring-green  rounded-full lg:w-96"
+          >
             View other crypto
-          </button>
+          </Link>
         </div>
       </div>
       <LearnCrypto />

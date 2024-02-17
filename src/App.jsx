@@ -11,6 +11,7 @@ import { NavbarWithMegaMenu } from "./components/modules/Navbar.jsx";
 import HomePage from "./components/templates/HomePage.jsx";
 import Login from "./components/modules/Login.jsx";
 import SignUp from "./components/modules/SignUp.jsx";
+import Pagination from "./components/modules/Pagination.jsx";
 
 //API
 import { getCoinList } from "./services/cryptoApi.jsx";
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="pagination" element={<Pagination />}></Route>
         </Routes>
       </ContextCoins.Provider>
     </>
