@@ -154,20 +154,20 @@ const TableRow = ({
       </td>
       <td
         className={
-          price_change < 1
-            ? "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-[#FA1E39] lg:mt-5 lg:mr-3"
-            : "w-14 md:w-24 lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-green lg:mt-5 lg:mr-3"
+          price_change < 0
+            ? "w-14 md:w-24 text-left lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-[#FA1E39] lg:mt-5 lg:mr-3"
+            : "w-14 md:w-24 text-left lg:w-40 text-[10px] md:text-sm lg:text-lg flex items-center justify-center text-green lg:mt-5 lg:mr-3"
         }
       >
-        {price_change > 1
+        {price_change > 0
           ? `+ ${price_change.toFixed(2)} %`
-          : `- ${price_change.toFixed(2)} %`}
+          : ` ${price_change.toFixed(2)} %`}
       </td>
-      <td className="w-14 md:w-24 lg:w-40 flex items-center justify-center text-[10px] md:text-sm lg:text-lg mr-2 lg:mt-5 lg:mr-3">
-        {current_price.toFixed(2)} $
+      <td className="w-14 md:w-24 lg:w-40 flex text-left items-center justify-center text-[10px] md:text-sm lg:text-lg mr-2 lg:mt-5 lg:mr-3">
+        {current_price.toLocaleString()}
       </td>
       <td className="w-14 md:w-24 lg:w-40 flex justify-center items-center lg:mt-5 lg:mr-3">
-        {price_change > 1 ? (
+        {price_change > 0 ? (
           <img src={Rice} alt="Rice" className="w-10 md:w-16 lg:w-24" />
         ) : (
           <img src={descent} alt="descent" className="w-10 md:w-16 lg:w-24" />

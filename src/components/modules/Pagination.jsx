@@ -41,11 +41,13 @@ const Pagination = () => {
         <table className=" w-full ">
           <thead className=" text-sm flex justify-center items-center ">
             <tr className="text-white mt-2  flex justify-center items-center border-b-2 border-dark3 pb-5">
-              <th className="flex cursor-pointer mr-7  items-center w-16 lg:w-40 md:w-24 justify-start text-xs md:text-sm lg:text-lg lg:ml-2  ">
+              <th className="flex cursor-pointer ml-2  items-center w-16 lg:w-40 md:w-24 justify-start text-[10px] md:text-sm lg:text-lglg:ml-2  ">
                 Name
               </th>
-              <th className="w-16 text-left md:w-24 lg:w-40">Price</th>
-              <th className="w-16 md:w-24  text-left lg:w-40 text-[10px] md:text-sm lg:text-lg mr-2 lg:ml-2">
+              <th className="w-16 text-left ml-4 md:w-24 text-[10px] md:text-sm lg:text-lg  lg:w-40">
+                Price
+              </th>
+              <th className="w-16 md:w-24 ml-2 text-left lg:w-40 text-[10px] md:text-sm lg:text-lg mr-2 lg:ml-2">
                 24h
               </th>
               <th className="w-16 text-[10px] text-left md:w-24 md:text-sm lg:text-lg lg:w-40  lg:mr-3">

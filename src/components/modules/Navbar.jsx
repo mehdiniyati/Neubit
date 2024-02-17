@@ -148,14 +148,12 @@ function NavList() {
     <List className="mt-4 items-center mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 ">
       <div className="  flex flex-col justify-between items-center lg:flex-row lg:w-[600px] xl:w-[750px]">
         <div>
-          <Typography
-            as="a"
-            href="#"
-            variant="h6"
-            className="mr-4 cursor-pointer text-2xl py-1.5 lg:ml-2 text-greenText hidden lg:block "
+          <Link
+            to="/"
+            className="mr-4 cursor-pointer text-2xl font-bold py-1.5 lg:ml-2 text-greenText hidden lg:block "
           >
             Neu<span className=" text-white">bit</span>
-          </Typography>
+          </Link>
         </div>
         <div className="flex flex-col items-center lg:flex-row">
           <Typography
@@ -204,14 +202,15 @@ export function NavbarWithMegaMenu() {
     <div className=" flex justify-center">
       <Navbar className=" px-4 py-2 shadow-none fixed top-0 z-50 mx-auto   bg-[#2E303D] bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg border-none">
         <div className="flex flex-row-reverse items-center justify-between lg:flex-row text-blue-gray-900">
-          <Typography
+          <Link
+            to="/"
             as="a"
             href="#"
             variant="h6"
             className="mr-4 cursor-pointer text-2xl py-1.5 lg:ml-2 text-greenText lg:hidden "
           >
             Neu<span className=" text-white">bit</span>
-          </Typography>
+          </Link>
           <div className="hidden lg:block">
             <NavList />
           </div>
